@@ -17,9 +17,10 @@ export default function Register() {
         
       async function register(ev){
         ev.preventDefault();
+        console.log(user);
         let a=await fetch('http://localhost:4000/register',{
           method : 'POST',
-          body : user,
+          body : JSON.stringify( user),
           headers : {'Content-type':'application/json'}
         })
         if(a.status===201){
@@ -39,6 +40,8 @@ export default function Register() {
               name="name"
               value={name}
               onChange={e => onInputChange(e)}
+              required
+              autoComplete='off'
             />
             <input
               type="text"
@@ -46,8 +49,9 @@ export default function Register() {
               placeholder="Enter Your email"
               name="email"
               value={email}
-              onChange={e => onInputChange(e)
-              }
+              onChange={e => onInputChange(e)}
+              required
+              autoComplete='off'
             />
             <input
               type="password"
@@ -56,6 +60,8 @@ export default function Register() {
               name="password"
               value={password}
               onChange={e => onInputChange(e)}
+              required
+              autoComplete='off'
             />  
           <button className="subtn">Submit</button>
         </form>

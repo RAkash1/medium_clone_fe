@@ -38,13 +38,14 @@ export default function Login() {
         <h2>SIGN UP</h2>
         <form className="form" onSubmit={login}>
             <input
-              type="text"
+              type="email"
               className="in"
               placeholder="Enter Your email"
               name="email"
               value={email}
-              onChange={e => onInputChange(e)
-              }
+              onChange={e => onInputChange(e)}
+              required
+              autoComplete='off'
             />
             <input
               type="password"
@@ -53,6 +54,8 @@ export default function Login() {
               name="password"
               value={password}
               onChange={e => onInputChange(e)}
+              required
+              autoComplete='off'
             />  
           <button className="subtn">Submit</button>
         </form>

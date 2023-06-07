@@ -3,7 +3,7 @@ import ReactQuill from "react-quill";
 export default function Editor({value,onChange}) {
   const modules = {
     toolbar: [
-      [{ header: [1, 2, false] }],
+      [{ header: [1, 2,3,4,5,6, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [
         { list: 'ordered' },
@@ -11,7 +11,7 @@ export default function Editor({value,onChange}) {
         { indent: '-1' },
         { indent: '+1' },
       ],
-      ['link', 'image'],
+      ['link'],
       ['clean'],
     ],
   };
@@ -21,7 +21,9 @@ export default function Editor({value,onChange}) {
       value={value}
       theme={'snow'}
       onChange={onChange}
-      modules={modules} />
+      modules={modules}
+      style={{width:'60vw',height:'30vh'}}
+       />
     </div>
   );
 }

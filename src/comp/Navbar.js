@@ -27,8 +27,8 @@ export default function Navbar() {
         <span className='navButton'>
         <Link to='/createPost' style={{color:'white',textDecoration:'none'}}>Write</Link>
         </span>
-        <span className='navButton'><Link to='/profile' style={{color:'white',textDecoration:'none'}}>Profile</Link></span>
-        <span className='navButton' onClick={logout} style={{color:'white',textDecoration:'none'}}>Logout {username}</span>
+        <span className='navButton'><Link to='/profile' style={{color:'white',textDecoration:'none'}}>{username}</Link></span>
+        <span className='navButton' onClick={logout} style={{color:'white',textDecoration:'none'}}>Logout</span>
         </div>
         : 
         <span className='navButton'>

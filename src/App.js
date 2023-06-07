@@ -8,6 +8,8 @@ import Register from './pages/Register'
 import CreatePost from './pages/CreatePost';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
+import PostEdit from './pages/PostEdit';
+import NoPage from './pages/NoPage';
 import './App.css';
 
 function App() {
@@ -23,6 +25,9 @@ function App() {
         <Route path="/createPost" element={<CreatePost/>}/>
         <Route path="/post/:id" element={<Post/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile/postedite/:id" element={<PostEdit/>}/>
+        <Route path="/profile/post/:id" element={<Post/>}/>
+        <Route path="*" element={<NoPage/>}/>
       </Routes>
       </BrowserRouter>
     </UserContextProvider>

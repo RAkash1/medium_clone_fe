@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Card from '../comp/Card'
-import { useNavigate } from 'react-router-dom'
+import ProfileCard from '../comp/profileCard'
 
 
 export default function Profile() {
-    const Navigate = useNavigate()
     const [posts,setPosts] = useState([])
     useEffect(() => {
         async function getProfile() {
@@ -14,24 +12,20 @@ export default function Profile() {
         }
         getProfile()
     }, [])
-    const deletePost = async(e) => {
-        const response = await fetch(`http://localhost:4000/post/${e.target.id}`, {
-            method: 'DELETE',
-            credentials: 'include'
-        })
-        
-        console.log(response)   
-        if(response.ok){
-            window.location.reload(false);
-    }}
     console.log(posts)
   return (
+    <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px'
+    }}>
+    { posts.map((post) => ( 
     <div>
-    {posts.map((post) => (  <div>
-    <Card {...post} />
-    <button id= {post._id} onClick={deletePost}>Delete</button>
-    <button>edit</button>
-    </div>))}
+    <ProfileCard {...post}/>
+    </div>
+    ))}
     </div>
     )
 }

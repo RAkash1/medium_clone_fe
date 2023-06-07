@@ -17,16 +17,29 @@ export default function Post() {
     console.log(postInfo)
 
   return (
-    <div style={{}}>
+    <div style={{
+      display:'flex',
+      flexDirection:'column',
+      alignItems:'center',
+
+      }}>
     {!postInfo ? 
     <div style={{width:'100vw',height:'90vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
     <h1>Loading...</h1>
     </div>
     :  
-    <div><h1>{postInfo.title}</h1>
-    <span style={{color:'grey',fontWeight:'bold'}}>{postInfo.author.username} </span> | <span style={{color:'grey',fontWeight:'bold'}}>{postInfo.createdAt}</span>
+    <div style={{
+      display:'flex',
+      flexDirection:'column',
+      alignItems:'center',
+      width:'50vw',
+    }}><h1>{postInfo.title}</h1>
+    <span style={{color:'grey',fontWeight:'bold'}}>{postInfo.author.username} | {postInfo.createdAt}</span>
     <p>{postInfo.summary}</p>
-    <img src={`http://localhost:4000/${postInfo.cover}`} style={{width:'700px'}}/></div>
+    <img src={`http://localhost:4000/${postInfo.cover}`} style={{width:'700px'}}/>
+    <div dangerouslySetInnerHTML={{__html:postInfo.content}} />
+    </div>
+    
     }
     </div>
   )
