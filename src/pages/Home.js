@@ -6,7 +6,7 @@ export default function Home() {
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     async function getPosts() {
-      const response = await fetch("http://localhost:4000/post", {
+       await fetch("https://medium-clon-qalxm96mh-rakash1.vercel.app/post", {
         method: "GET",
         credentials: "include",
       })
@@ -46,7 +46,7 @@ export default function Home() {
             paddingTop: "20px",
           }}
         >
-          {posts.map((post) => (
+          {posts.map((post,index) => (
             <Card {...post} />
           ))}
         </div>

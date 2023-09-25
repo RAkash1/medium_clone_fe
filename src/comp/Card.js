@@ -16,7 +16,7 @@ export default function Card({ _id, author, createdAt, title, summary, cover: im
           <p className='sum'>{summary}</p>
         </div>
       </div>
-      <div className='img'><Link to={`post/${_id}`}><img src={`http://localhost:4000/${image}`} /></Link></div>
+      <div className='img'><Link to={`post/${_id}`}><img src={image} /></Link></div>
     </div>
   )
 }

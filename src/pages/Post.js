@@ -50,7 +50,7 @@ export default function Post() {
           </span>
           <p>{postInfo.summary}</p>
           <img
-            src={`http://localhost:4000/${postInfo.cover}`}
+            src={postInfo.cover}
             style={{ width: "50vw", height: "auto" }}
           />
           <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
