@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "../comp/profileCard";
 import { Link } from "react-router-dom";
+import api from "../api";
 
 export default function Profile() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function getProfile() {
-      await fetch("http://localhost:4000/profile", {
+      await fetch(`${api}/profile`, {
         method: "GET",
         credentials: "include",
       }).then((res) => res.json().then((data) => setPosts(data)));

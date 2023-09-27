@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Card from "../comp/Card";
-
+import api from "../api";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     async function getPosts() {
-       await fetch("https://medium-clon-be.vercel.app/post", {
+      const response = await fetch(`${api}/post`, {
         method: "GET",
         credentials: "include",
       })

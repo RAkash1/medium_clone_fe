@@ -3,15 +3,17 @@ import "./nav.css";
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
 import { UserState } from "../UserContext";
+import api from "../api"
 export default function Navbar() {
   const { users, setUsers } = UserState();
   useEffect(() => {
-    fetch("http://localhost:4000/user", {
+    fetch(`${api}/user`, {
       method: "get",
       credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => setUsers(data))
+      .then((data) => console.log(data))
       .catch((err) => console.log(err));
   }, []);
   const style = { color: "white", textDecoration: "none" }

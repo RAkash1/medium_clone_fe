@@ -2,10 +2,11 @@ import React from "react";
 import "./card.css";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
+import api from "../api";
 
 export default function ProfileCard({ _id, createdAt, title, cover: image }) {
     const deletePost = async (ev) => {
-        const response = await fetch(`http://localhost:4000/post/${ev.target.id}`, {
+        const response = await fetch(`${api}/post/${ev.target.id}`, {
             method: "DELETE",
             credentials: "include",
         });

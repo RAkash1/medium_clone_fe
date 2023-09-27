@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserState } from "../UserContext";
+import api from "../api";
 export default function Login() {
   const navigate = useNavigate();
   const { users, setUsers } = UserState();
@@ -19,7 +20,7 @@ export default function Login() {
 
   async function login(ev) {
     ev.preventDefault();
-    let a = await fetch("http://localhost:4000/login", {
+    let a = await fetch(`${api}/login`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "Content-type": "application/json" },
@@ -31,6 +32,8 @@ export default function Login() {
       // console.log(users)
       navigate("/");
     } else alert("login failed !!!");
+    
+
   }
   return users.username ? (
     navigate("/")
