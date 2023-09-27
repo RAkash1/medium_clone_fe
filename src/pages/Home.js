@@ -6,7 +6,7 @@ export default function Home() {
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     async function getPosts() {
-       await fetch("https://medium-clon-qalxm96mh-rakash1.vercel.app/post", {
+       await fetch("https://medium-clon-be.vercel.app/post", {
         method: "GET",
         credentials: "include",
       })
