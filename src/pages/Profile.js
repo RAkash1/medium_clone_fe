@@ -7,6 +7,10 @@ export default function Profile() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function getProfile() {
+      // await fetch(`${api}/profile`, {
+      //   method: "GET",
+      //   credentials: "include",
+      // }).then((res) => res.json().then((data) => setPosts(data)));
       await fetch(`${api}/profile`, {
         method: "GET",
         credentials: "include",
