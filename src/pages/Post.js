@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {api} from "../api";
+import api from "../api";
 
 export default function Post() {
+  console.log(api);
   const params = useParams();
   const [postInfo, setPostInfo] = useState();
   useEffect(() => {
