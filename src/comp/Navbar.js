@@ -22,8 +22,8 @@ export default function Navbar() {
     fetch("http://localhost:4000/logout", {
       method: "post",
       credentials: "include",
-    });
-    setUsers(null);
+    }).then(()=>setUsers(null));
+    ;
   };
   const username = users?.username;
   // console.log(username)
