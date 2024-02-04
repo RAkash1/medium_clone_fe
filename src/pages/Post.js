@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {api} from "../api";
 
 export default function Post() {
   const params = useParams();
   const [postInfo, setPostInfo] = useState();
   useEffect(() => {
     async function getPosts() {
-      await fetch(`http://localhost:4000/post/${params.id}`, {
+      await fetch(`${api}/post/${params.id}`, {
         method: "GET",
         credentials: "include",
       }).then((res) => res.json().then((data) => setPostInfo(data)));
