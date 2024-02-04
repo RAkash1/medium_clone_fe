@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import TimeAgo from 'javascript-time-ago'
+import { UserContextProvider } from './UserContext';
 
 import en from 'javascript-time-ago/locale/en.json'
 import ru from 'javascript-time-ago/locale/ru.json'
@@ -14,7 +15,10 @@ TimeAgo.addLocale(ru)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <UserContextProvider>
+        <App />
+    </UserContextProvider>
+    
 );
 
 // If you want to start measuring performance in your app, pass a function

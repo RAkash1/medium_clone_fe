@@ -11,11 +11,28 @@ import Profile from './pages/Profile';
 import PostEdit from './pages/PostEdit';
 import NoPage from './pages/NoPage';
 import './App.css';
+import { useEffect } from 'react';
+import { UserState } from './UserContext';
+
+import api from './api';
 
 function App() {
+  const { users, setUsers } = UserState();
+
+  useEffect(() => {
+
+    fetch(`${api}/user`, {
+      method: "get",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="App">
-    <UserContextProvider>
+    
     <BrowserRouter>
       <Navbar/>
       <Routes>
@@ -30,7 +47,6 @@ function App() {
         <Route path="*" element={<NoPage/>}/>
       </Routes>
       </BrowserRouter>
-    </UserContextProvider>
     </div>
   );
 }

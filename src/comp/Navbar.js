@@ -6,24 +6,14 @@ import { UserState } from "../UserContext";
 import api from "../api"
 export default function Navbar() {
   const { users, setUsers } = UserState();
-  useEffect(() => {
-    fetch(`${api}/user`, {
-      method: "get",
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  }, []);
   const style = { color: "white", textDecoration: "none" }
 
   const logout = () => {
-    fetch("http://localhost:4000/logout", {
+    fetch(`${api}/logout`, {
       method: "post",
       credentials: "include",
-    }).then(()=>setUsers(null));
-    ;
+    }).then((res)=>setUsers(null));
+    
   };
   const username = users?.username;
   // console.log(username)

@@ -47,7 +47,7 @@ export default function Home() {
           }}
         >
           {posts.map((post,index) => (
-            <Card {...post} />
+            <Card key={index} {...post} />
           ))}
         </div>
       )}
