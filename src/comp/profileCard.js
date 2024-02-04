@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import api from "../api";
 
-export default function ProfileCard({ _id, createdAt, title, cover }) {
+export default function ProfileCard(post) {
+    const { _id, createdAt, title, cover } = post;
     const deletePost = async (ev) => {
         const response = await fetch(`${api}/post/${ev.target.id}`, {
             method: "DELETE",
