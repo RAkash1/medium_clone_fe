@@ -6,7 +6,7 @@ export default function Home() {
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     async function getPosts() {
-      const response = await fetch(`${api}/post`, {
+      await fetch(`${api}/post`, {
         method: "GET",
         credentials: "include",
       })
