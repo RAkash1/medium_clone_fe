@@ -17,6 +17,7 @@ export default function ProfileCard({ _id, createdAt, title, image }) {
             window.location.reload(false);
         }
     };
+    console.log(image);
 
     return (
         <div className="card">
