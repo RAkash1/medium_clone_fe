@@ -14,7 +14,7 @@ export default function Profile() {
       await fetch(`${api}/profile`, {
         method: "GET",
         credentials: "include",
-      }).then((res) => res.json().then((data) => setPosts(data)));
+      }).then((res) => res.json()).then((data) => setPosts(data));
     }
     getProfile();
   }, []);
