@@ -30,7 +30,7 @@ export default function ProfileCard({ _id, createdAt, title, cover: image }) {
                 }}
             >
                 <Link to={`post/${_id}`}>
-                    <img src={{image}} />
+                    <img src={image} />
                 </Link>
             </div>
             <div
