@@ -18,7 +18,7 @@ export default function Register() {
       async function register(ev){
         ev.preventDefault();
         console.log(user);
-        let a=await fetch('http://localhost:4000/register',{
+        let a=await fetch('https://megamix-be.vercel.app/register',{
           method : 'POST',
           body : JSON.stringify( user),
           headers : {'Content-type':'application/json'}
